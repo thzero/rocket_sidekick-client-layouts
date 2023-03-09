@@ -29,7 +29,8 @@
 			>
 				{{ $t('menu.content.rockets.title') }}
 			</v-btn>
-			<v-menu
+
+			<!-- <v-menu
 				v-if="$vuetify.display.mdAndUp"
 			>
 				<template v-slot:activator="{ props }">
@@ -118,10 +119,18 @@
 				to="/landing"
 			>
 				{{ $t('menu.content.app') }}
-			</v-btn>
+			</v-btn> -->
+
+			<MainMenuToolbar
+				:displaySignIn="displaySignIn"
+				:features="features"
+				:info="info"
+				:isLoggedIn="isLoggedIn"
+				:tools="tools"
+			/>
 
 			<template v-slot:append>
-				<v-menu>
+				<!-- <v-menu>
 					<template v-slot:activator="{ props }">
 						<v-btn
 							v-bind="props"
@@ -138,27 +147,18 @@
 							<v-list-item-title>{{ $t('titles.settings') }}</v-list-item-title>
 						</v-list-item>
 						<v-list-item @click="clickAbout">
-							<!-- to="/about" -->
 							<template v-slot:prepend>
 								<v-icon>mdi-information</v-icon>
 							</template>
 							<v-list-item-title>{{ $t('titles.about') }}</v-list-item-title>
 						</v-list-item>
 						<v-list-item @click="clickPrivcy">
-							<!-- to="/privacy" -->
 							<template v-slot:prepend>
 								<v-icon>mdi-information</v-icon>
 							</template>
 							<v-list-item-title>{{ $t('titles.privacy') }}</v-list-item-title>
 						</v-list-item>
-						<!-- <v-list-item @click="clickSupport">
-							<template v-slot:prepend>
-								<v-icon>mdi-help</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.support') }}</v-list-item-title>
-						</v-list-item> -->
 						<v-list-item @click="clickOpenSource">
-							<!-- to="/openSource" -->
 							<template v-slot:prepend>
 								<v-icon>mdi-open-source-initiative</v-icon>
 							</template>
@@ -187,7 +187,19 @@
 							<v-list-item-title>{{ $t('titles.signOut') }}</v-list-item-title>
 						</v-list-item>
 					</v-list>
-				</v-menu>
+				</v-menu> -->
+				<SecondaryMenu
+					:clickAbout="clickAbout"
+					:clickOpenSource="clickOpenSource"
+					:clickPrivcy="clickPrivcy"
+					:clickSignOut="clickSignOut"
+					:clickSupport="clickSupport"
+					:displaySignIn="displaySignIn"
+					:features="features"
+					:info="info"
+					:isLoggedIn="isLoggedIn"
+					:tools="tools"
+				 />
 			</template>
 		</v-app-bar>
 
@@ -195,7 +207,7 @@
 			v-model="drawer"
 			temporary
 		>
-			<v-list density="compact">
+			<!-- <v-list density="compact">
 				<v-list-item>
 					{{ $t('menu.content.info.title') }}
 					<v-list density="compact">
@@ -269,7 +281,7 @@
 				>
 					<v-list-item-title>{{ $t('menu.content.links.title') }}</v-list-item-title>
 				</v-list-item>
-				<!-- <v-list-item>
+				<v-list-item>
 					{{ $t('menu.links.title') }}
 					<v-list density="compact">
 						<v-list-item
@@ -281,14 +293,21 @@
 							<v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
 						</v-list-item>
 					</v-list>
-				</v-list-item> -->
+				</v-list-item>
 				<v-list-item
 					v-if="features.MobileApp"
 					to="/landing"
 				>
 					<v-list-item-title>{{ $t('menu.content.app') }}</v-list-item-title>
 				</v-list-item>
-			</v-list>
+			</v-list> -->
+			<MainMenuDrawer
+				:displaySignIn="displaySignIn"
+				:features="features"
+				:info="info"
+				:isLoggedIn="isLoggedIn"
+				:tools="tools"
+			/>
 		</v-navigation-drawer>
 
 		<v-main id="top">
@@ -347,9 +366,16 @@ import VConfirmationDialog from '@thzero/library_client_vue3_vuetify3/components
 import VLayoutFooter from '@thzero/library_client_vue3_vuetify3/components/VLayoutFooter';
 import VLoadingOverlay from '@thzero/library_client_vue3_vuetify3/components/VLoadingOverlay';
 
+import MainMenuDrawer from '@/components.app/main/mainMenuDrawer';
+import MainMenuToolbar from '@/components.app/main/mainMenuToolbar';
+import SecondaryMenu from '@/components.app/main/secondaryMenu';
+
 export default {
 	name: 'MainLayout',
 	components: {
+		MainMenuDrawer,
+		MainMenuToolbar,
+		SecondaryMenu,
 		VConfirmationDialog,
 		VCookieComply,
 		// VDisplayDialog,
