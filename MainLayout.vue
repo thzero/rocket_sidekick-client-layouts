@@ -348,6 +348,7 @@
 		/>
 
 		<VCookieComply
+			v-if="features.CookieComply"
 			:preferences="preferences"
 		/>
 	</v-app>
