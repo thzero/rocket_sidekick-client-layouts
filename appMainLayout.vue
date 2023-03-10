@@ -9,6 +9,7 @@ import LibraryClientUtility from '@thzero/library_client/utility/index';
 import { useBaseMainLayout } from '@thzero/library_client_vue3/layouts/baseMainLayout';
 
 import DialogSupport from '@thzero/library_client_vue3/components/support/dialog';
+import AppUtility from '@/utility/app';
 
 export function useAppMainLayout(props, context, options) {
 	const {
@@ -38,7 +39,7 @@ export function useAppMainLayout(props, context, options) {
 		serviceStore,
 		toggleDrawer
 	} = useBaseMainLayout(props, context, {
-		features: AppConstants.Features
+		features: AppUtility.features
 	});
 
 	const serviceMarkup = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_MARKUP_PARSER);
