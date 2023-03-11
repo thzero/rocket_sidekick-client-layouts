@@ -38,9 +38,7 @@ export function useAppMainLayout(props, context, options) {
 		serviceAuth,
 		serviceStore,
 		toggleDrawer
-	} = useBaseMainLayout(props, context, {
-		features: AppUtility.features
-	});
+	} = useBaseMainLayout(props, context);
 
 	const serviceMarkup = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_MARKUP_PARSER);
 
