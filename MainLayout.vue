@@ -341,7 +341,9 @@
 			!--eslint-enable--
 		</VDisplayDialog> -->
 
-		<VLayoutFooter />
+		<v-footer>
+			<VLayoutFooter />
+		</v-footer>
 
 		<VLoadingOverlay
 			:signal="isAuthCompleted"
