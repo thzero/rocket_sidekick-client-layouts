@@ -1,7 +1,7 @@
 <script>
 import { computed, onMounted, ref } from 'vue';
 
-import AppConstants from '@/utility/constants';
+import AppSharedConstants from '@/utility/constants';
 import LibraryClientConstants from '@thzero/library_client/constants';
 
 import LibraryClientUtility from '@thzero/library_client/utility/index';
@@ -93,7 +93,7 @@ export function useAppMainLayout(props, context, options) {
 	];
 
 	const displaySignIn = computed(() => {
-		return !isLoggedIn && AppConstants.Features.Auth;
+		return !isLoggedIn && AppSharedConstants.Features.Auth;
 	});
 	const info = computed(() => {
 		let info = serviceStore.getters.getContentInfo();
