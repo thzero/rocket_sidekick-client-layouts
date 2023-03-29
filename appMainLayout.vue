@@ -39,6 +39,7 @@ export function useAppMainLayout(props, context, options) {
 		toggleDrawer
 	} = useBaseMainLayout(props, context);
 
+	const serviceFeatures = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_FEATURES);
 	const serviceMarkup = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_MARKUP_PARSER);
 
 	const dialogDisplayMarkupSignal = ref(new DialogSupport());
@@ -93,7 +94,7 @@ export function useAppMainLayout(props, context, options) {
 	];
 
 	const displaySignIn = computed(() => {
-		return !isLoggedIn && AppSharedConstants.Features.Auth;
+		return !isLoggedIn && serviceFeatures.features().Auth;
 	});
 	const info = computed(() => {
 		let info = serviceStore.getters.getContentInfo();
