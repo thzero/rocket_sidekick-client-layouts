@@ -11,6 +11,8 @@ import { useBaseMainLayout } from '@thzero/library_client_vue3/layouts/baseMainL
 import DialogSupport from '@thzero/library_client_vue3/components/support/dialog';
 
 export function useAppMainLayout(props, context, options) {
+	const serviceFeatures = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_FEATURES);
+
 	const {
 		correlationId,
 		error,
@@ -31,15 +33,17 @@ export function useAppMainLayout(props, context, options) {
 		clickSupport,
 		dialogSignOut,
 		dialogSignOutOk,
-		drawer,
+		displayDrawer,
+		displayFooter,
 		isAuthCompleted,
 		isLoggedIn,
 		serviceAuth,
 		serviceStore,
 		toggleDrawer
-	} = useBaseMainLayout(props, context);
+	} = useBaseMainLayout(props, context, {
+		displayFooter: !serviceFeatures.features().MobileOnly
+	});
 
-	const serviceFeatures = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_FEATURES);
 	const serviceMarkup = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_MARKUP_PARSER);
 
 	const dialogDisplayMarkupSignal = ref(new DialogSupport());
@@ -169,7 +173,8 @@ export function useAppMainLayout(props, context, options) {
 		clickSupport,
 		dialogSignOut,
 		dialogSignOutOk,
-		drawer,
+		displayDrawer,
+		displayFooter,
 		isAuthCompleted,
 		isLoggedIn,
 		serviceAuth,

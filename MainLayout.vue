@@ -204,7 +204,7 @@
 		</v-app-bar>
 
 		<v-navigation-drawer
-			v-model="drawer"
+			v-model="displayDrawer"
 			temporary
 		>
 			<!-- <v-list density="compact">
@@ -341,7 +341,10 @@
 			!--eslint-enable--
 		</VDisplayDialog> -->
 
-		<v-footer>
+		<v-footer
+			v-if="displayFooter"
+			app
+		>
 			<VLayoutFooter />
 		</v-footer>
 
@@ -359,8 +362,6 @@
 <script>
 import { computed } from 'vue';
 
-import { useAppMainLayout } from '@/layouts/appMainLayout';
-
 import LibraryClientUtility from '@thzero/library_client/utility/index';
 
 import VCookieComply from '@thzero/library_client_vue3_vuetify3/components/VCookieComply';
@@ -372,6 +373,8 @@ import VLoadingOverlay from '@thzero/library_client_vue3_vuetify3/components/VLo
 import MainMenuDrawer from '@/components.app/main/mainMenuDrawer';
 import MainMenuToolbar from '@/components.app/main/mainMenuToolbar';
 import SecondaryMenu from '@/components.app/main/secondaryMenu';
+
+import { useAppMainLayout } from '@/layouts/appMainLayout';
 
 export default {
 	name: 'MainLayout',
@@ -406,7 +409,8 @@ export default {
 			clickSupport,
 			dialogSignOut,
 			dialogSignOutOk,
-			drawer,
+			displayDrawer,
+			displayFooter,
 			isAuthCompleted,
 			isLoggedIn,
 			serviceAuth,
@@ -452,7 +456,8 @@ export default {
 			clickSupport,
 			dialogSignOut,
 			dialogSignOutOk,
-			drawer,
+			displayDrawer,
+			displayFooter,
 			isAuthCompleted,
 			isLoggedIn,
 			serviceAuth,
