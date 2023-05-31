@@ -316,7 +316,6 @@
 				fluid
 				pt-2
 			>
-			[[ {{  online  }}]]
 				<router-view />
 			</v-container>
 		</v-main>
