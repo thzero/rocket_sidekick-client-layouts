@@ -97,7 +97,7 @@ export function useAppMainLayout(props, context, options) {
 	];
 
 	const displaySignIn = computed(() => {
-		return !isLoggedIn && serviceFeatures.features().Auth;
+		return !isLoggedIn.value && serviceFeatures.features().Auth;
 	});
 	const info = computed(() => {
 		let info = serviceStore.getters.getContentInfo();
