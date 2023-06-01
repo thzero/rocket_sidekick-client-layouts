@@ -30,97 +30,6 @@
 				{{ $t('menu.content.rockets.title') }}
 			</v-btn>
 
-			<!-- <v-menu
-				v-if="$vuetify.display.mdAndUp"
-			>
-				<template v-slot:activator="{ props }">
-					<v-btn append-icon="mdi-menu-down"
-						v-bind="props"
-					>{{ $t('menu.content.info.title') }}</v-btn>
-				</template>
-				<v-list density="compact">
-					<v-list-item
-						v-for="item in info"
-						:key="item.name"
-						:to="contentLink(item)"
-					>
-						<v-list-item-title>{{ contentTitle(item) }}</v-list-item-title>
-					</v-list-item>
-				</v-list>
-			</v-menu>
-			<v-menu
-				v-if="$vuetify.display.mdAndUp"
-			>
-				<template v-slot:activator="{ props }">
-					<v-btn append-icon="mdi-menu-down"
-						v-bind="props"
-					>{{ $t('menu.content.tools.title') }}</v-btn>
-				</template>
-				<v-list density="compact">
-					<v-list-item
-						v-for="item in tools"
-						:key="item.name"
-						:to="contentLink(item)"
-					>
-						<v-list-item-title>{{ contentTitle(item) }}</v-list-item-title>
-					</v-list-item>
-				</v-list>
-			</v-menu>
-			<v-menu
-				v-if="$vuetify.display.mdAndUp && features.Yours.value"
-			>
-				<template v-slot:activator="{ props }">
-					<v-btn append-icon="mdi-menu-down"
-						v-bind="props"
-					>{{ $t('menu.yours.title') }}</v-btn>
-				</template>
-				<v-list density="compact">
-					<v-list-item
-						v-if="features.Yours.Checklists"
-						to="/yours/checklists"
-					>
-						<v-list-item-title>{{ $t('menu.yours.checklists') }}</v-list-item-title>
-					</v-list-item>
-					<v-list-item
-						v-if="features.Yours.Launches"
-						to="/yours/launches"
-					>
-						<v-list-item-title>{{ $t('menu.yours.rockets') }}</v-list-item-title>
-					</v-list-item>
-					<v-divider></v-divider>
-					<v-list-item
-						v-if="features.Yours.Altimeters"
-						to="yours/altimeters"
-					>
-						<v-list-item-title>{{ $t('menu.yours.altimeters') }}</v-list-item-title>
-					</v-list-item>
-					<v-list-item
-						v-if="features.Yours.Parachutes"
-						to="yours/parachutes"
-					>
-						<v-list-item-title>{{ $t('menu.yours.parachutes') }}</v-list-item-title>
-					</v-list-item>
-					<v-list-item
-						v-if="features.Yours.Rockets"
-						to="/yours/rockets"
-					>
-						<v-list-item-title>{{ $t('menu.yours.rockets') }}</v-list-item-title>
-					</v-list-item>
-				</v-list>
-			</v-menu>
-			<v-btn
-				v-if="$vuetify.display.mdAndUp"
-				to="/content/links"
-			>
-				{{ $t('menu.content.links.title') }}
-			</v-btn>
-			<v-btn
-				v-if="$vuetify.display.mdAndUp && features.MobileAppLanding"
-				to="/landing"
-			>
-				{{ $t('menu.content.app') }}
-			</v-btn> -->
-
 			<MainMenuToolbar
 				:displaySignIn="displaySignIn"
 				:features="features"
@@ -130,64 +39,6 @@
 			/>
 
 			<template v-slot:append>
-				<!-- <v-menu>
-					<template v-slot:activator="{ props }">
-						<v-btn
-							v-bind="props"
-							icon="mdi-dots-vertical"
-						></v-btn>
-					</template>
-					<v-list density="compact">
-						<v-list-item
-							to="/settings"
-						>
-							<template v-slot:prepend>
-								<v-icon>mdi-cog</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.settings') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item @click="clickAbout">
-							<template v-slot:prepend>
-								<v-icon>mdi-information</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.about') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item @click="clickPrivcy">
-							<template v-slot:prepend>
-								<v-icon>mdi-information</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.privacy') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item @click="clickOpenSource">
-							<template v-slot:prepend>
-								<v-icon>mdi-open-source-initiative</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.openSource') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item
-							v-if="displaySignIn"
-							@click="clickSignIn"
-						>
-							<template v-slot:prepend>
-								<v-icon color="green darken-2">
-									mdi-account
-								</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.signIn') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item
-							v-if="isLoggedIn"
-							@click="clickSignOut"
-						>
-							<template v-slot:prepend>
-								<v-icon color="red darken-2">
-									mdi-account
-								</v-icon>
-							</template>
-							<v-list-item-title>{{ $t('titles.signOut') }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-menu> -->
 				<SecondaryMenu
 					:clickAbout="clickAbout"
 					:clickOpenSource="clickOpenSource"
@@ -199,6 +50,8 @@
 					:info="info"
 					:isLoggedIn="isLoggedIn"
 					:tools="tools"
+					@clickSignIn="clickSignIn"
+					@clickSignOut="clickSignOut"
 				 />
 			</template>
 		</v-app-bar>
@@ -207,100 +60,6 @@
 			v-model="displayDrawer"
 			temporary
 		>
-			<!-- <v-list density="compact">
-				<v-list-item>
-					{{ $t('menu.content.info.title') }}
-					<v-list density="compact">
-						<v-list-item
-							v-for="item in info"
-							:key="item.name"
-							:to="contentLink(item)"
-						>
-							<v-list-item-title>{{ contentTitle(item) }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-list-item>
-				<v-list-item
-					v-if="features.Rocket"
-					to="/rockets"
-				>
-					<v-list-item-title>{{ $t('menu.content.rockets.title') }}</v-list-item-title>
-				</v-list-item>
-				<v-list-item>
-					{{ $t('menu.content.tools.title') }}
-					<v-list density="compact">
-						<v-list-item
-							v-for="item in tools"
-							:key="item.name"
-							:to="contentLink(item)"
-						>
-							<v-list-item-title>{{ contentTitle(item) }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-list-item>
-				<v-list-item
-					v-if="features.Yours.value"
-				>
-					{{ $t('menu.yours.title') }}
-					<v-list density="compact">
-						<v-list-item
-							v-if="features.Yours.Checklists"
-							to="/yours/checklists"
-						>
-							<v-list-item-title>{{ $t('menu.yours.checklists') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item
-							v-if="features.Yours.Launches"
-							to="/yours/launches"
-						>
-							<v-list-item-title>{{ $t('menu.yours.launches') }}</v-list-item-title>
-						</v-list-item>
-						<v-divider></v-divider>
-						<v-list-item
-							v-if="features.Yours.Altimeters"
-							to="/yours/altimeters"
-						>
-							<v-list-item-title>{{ $t('menu.yours.altimeters') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item
-							v-if="features.Yours.Parachutes"
-							to="/yours/parachutes"
-						>
-							<v-list-item-title>{{ $t('menu.yours.parachutes') }}</v-list-item-title>
-						</v-list-item>
-						<v-list-item
-							v-if="features.Yours.Rockets"
-							to="/yours/rockets"
-						>
-							<v-list-item-title>{{ $t('menu.yours.rockets') }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-list-item>
-				<v-list-item
-					to="/content/links"
-				>
-					<v-list-item-title>{{ $t('menu.content.links.title') }}</v-list-item-title>
-				</v-list-item>
-				<v-list-item>
-					{{ $t('menu.links.title') }}
-					<v-list density="compact">
-						<v-list-item
-							v-for="item in links"
-							:key="item.name"
-							:href="item.link"
-							target="_blank"
-						>
-							<v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-list-item>
-				<v-list-item
-					v-if="features.MobileAppLanding"
-					to="/landing"
-				>
-					<v-list-item-title>{{ $t('menu.content.app') }}</v-list-item-title>
-				</v-list-item>
-			</v-list> -->
 			<MainMenuDrawer
 				:displaySignIn="displaySignIn"
 				:features="features"
