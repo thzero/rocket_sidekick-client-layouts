@@ -75,6 +75,8 @@
 				fluid
 				pt-2
 			>
+			<!-- [[ online = {{  online  }}]]
+			[[ isLoggedIn = {{  isLoggedIn  }}]] -->
 				<router-view />
 			</v-container>
 		</v-main>
