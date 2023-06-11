@@ -77,7 +77,7 @@ export function useAppMainLayout(props, context, options) {
 			description: LibraryClientUtility.$trans.t('strings.cookieCompliance.analytics.description'),
 			items: [
 				{
-					label: 'GoogleAnalytics',
+					label: 'Google Analytics',
 					value: 'ga',
 					isEnable: true
 				},
