@@ -81,12 +81,12 @@
 			</v-container>
 		</v-main>
 
-		<VConfirmationDialog
+		<VtConfirmationDialog
 			:signal="dialogSignOut.signal"
 			@cancel="dialogSignOut.cancel()"
 			@ok="dialogSignOutOk"
 		/>
-		<!-- <VDisplayDialog
+		<!-- <VtDisplayDialog
 			:signal="dialogDisplayMarkupSignal.signal"
 			@cancel="dialogDisplayMarkupCancel"
 			@ok="dialogDisplayMarkupOk"
@@ -98,20 +98,20 @@
 				v-html="displayMarkupValue"
 			/>
 			!--eslint-enable--
-		</VDisplayDialog> -->
+		</VtDisplayDialog> -->
 
 		<v-footer
 			v-if="displayFooter"
 			app
 		>
-			<VLayoutFooter />
+			<VtLayoutFooter />
 		</v-footer>
 
-		<VLoadingOverlay
+		<VtLoadingOverlay
 			:signal="isAuthCompleted"
 		/>
 
-		<VCookieComply
+		<VtCookieComply
 			v-if="features.CookieComply"
 			:preferences="preferences"
 		/>
@@ -123,11 +123,11 @@ import { computed } from 'vue';
 
 import LibraryClientUtility from '@thzero/library_client/utility/index';
 
-import VCookieComply from '@thzero/library_client_vue3_vuetify3/components/VCookieComply';
-import VConfirmationDialog from '@thzero/library_client_vue3_vuetify3/components/VConfirmationDialog';
-// import VDisplayDialog from '@thzero/library_client_vue3_vuetify3/components/VDisplayDialog';
-import VLayoutFooter from '@thzero/library_client_vue3_vuetify3/components/VLayoutFooter';
-import VLoadingOverlay from '@thzero/library_client_vue3_vuetify3/components/VLoadingOverlay';
+import VtCookieComply from '@thzero/library_client_vue3_vuetify3/components/VtCookieComply';
+import VtConfirmationDialog from '@thzero/library_client_vue3_vuetify3/components/VtConfirmationDialog';
+// import VtDisplayDialog from '@thzero/library_client_vue3_vuetify3/components/VtDisplayDialog';
+import VtLayoutFooter from '@thzero/library_client_vue3_vuetify3/components/VtLayoutFooter';
+import VtLoadingOverlay from '@thzero/library_client_vue3_vuetify3/components/VtLoadingOverlay';
 
 import MainMenuDrawer from '@/components.app/main/mainMenuDrawer';
 import MainMenuToolbar from '@/components.app/main/mainMenuToolbar';
@@ -141,11 +141,11 @@ export default {
 		MainMenuDrawer,
 		MainMenuToolbar,
 		SecondaryMenu,
-		VConfirmationDialog,
-		VCookieComply,
-		// VDisplayDialog,
-		VLayoutFooter,
-		VLoadingOverlay
+		VtConfirmationDialog,
+		VtCookieComply,
+		// VtDisplayDialog,
+		VtLayoutFooter,
+		VtLoadingOverlay
 	},
 	setup(props, context) {
 		const {
