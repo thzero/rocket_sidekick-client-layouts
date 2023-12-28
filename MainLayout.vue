@@ -181,7 +181,6 @@ export default {
 			dialogDisplayMarkupOk,
 			dialogDisplayMarkupSignal,
 			displayMarkupValue,
-			dialogNewCharacter,
 			info,
 			displaySignIn,
 			// links,
@@ -228,7 +227,6 @@ export default {
 			dialogDisplayMarkupOk,
 			dialogDisplayMarkupSignal,
 			displayMarkupValue,
-			dialogNewCharacter,
 			info,
 			displaySignIn,
 			// links,
@@ -238,33 +236,7 @@ export default {
 			tools,
 			online
 		};
-	},
-	// data: () => ({
-	// 	closeOnContentClick: true,
-	// 	// drawer: false,
-	// 	dialogDisplayMarkupSignal: new DialogSupport(),
-	// 	displayMarkupValue: null,
-	// 	dialogNewCharacter: new DialogSupport()
-	// }),
-	// created() {
-	// 	this._serviceMarkup = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_MARKUP_PARSER);
-
-	// 	LibraryClientUtility.$EventBus.on('display-markup', (value) => {
-	// 		this.markup(this.correlationId(), value);
-	// 		this.dialogDisplayMarkupSignal.open();
-	// 	});
-	// },
-	// methods: {
-	// 	async dialogDisplayMarkupCancel() {
-	// 		this.dialogDisplayMarkupSignal.cancel();
-	// 	},
-	// 	async dialogDisplayMarkupOk() {
-	// 		this.dialogDisplayMarkupSignal.ok();
-	// 	},
-	// 	markup(correlationId, value) {
-	// 		this.displayMarkupValue = value ? this._serviceMarkup.trimResults(correlationId, this._serviceMarkup.render(correlationId, value)) : null;
-	// 	}
-	// }
+	}
 };
 </script>
 
