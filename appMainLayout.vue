@@ -47,7 +47,6 @@ export function useAppMainLayout(props, context, options) {
 
 	const dialogDisplayMarkupSignal = ref(new DialogSupport());
 	const displayMarkupValue = ref(null);
-	const dialogNewCharacter = ref(new DialogSupport());
 
 	const preferences = [
 		{
@@ -185,7 +184,6 @@ export function useAppMainLayout(props, context, options) {
 		dialogDisplayMarkupOk,
 		dialogDisplayMarkupSignal,
 		displayMarkupValue,
-		dialogNewCharacter,
 		info,
 		displaySignIn,
 		// links,
