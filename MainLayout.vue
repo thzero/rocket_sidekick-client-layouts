@@ -17,7 +17,7 @@
 			<v-app-bar-title class="headline text-uppercase">
 				<router-link
 					to="/"
-					class="toolbar-title"
+					class="text-contrast toolbar-title"
 				>
 					{{ $t('titles.application') }}
 				</router-link>
@@ -25,9 +25,11 @@
 
 			<v-btn
 				v-if="$vuetify.display.mdAndUp && features.Rockets"
+				variant="tonal"
+				class="mr-2"
 				to="/rockets"
 			>
-				{{ $t('menu.content.rockets.title') }}
+				<span class="toolbar-button">{{ $t('menu.content.rockets.title') }}</span>
 			</v-btn>
 
 			<MainMenuToolbar
