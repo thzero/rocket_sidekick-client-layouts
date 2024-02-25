@@ -25,6 +25,7 @@
 
 			<v-btn
 				v-if="$vuetify.display.mdAndUp && features.Rockets"
+				prepend-icon="mdi-rocket"
 				variant="tonal"
 				class="mr-2"
 				to="/rockets"
