@@ -19,12 +19,20 @@
 					to="/"
 					class="text-contrast toolbar-title"
 				>
-					{{ $t('titles.application') }}
+					{{ $t('titles.application') }} 
+					<Span
+						v-if="!isOnline"
+					>
+						(<span 
+							class="text-red"
+							style="font-weight: bold; text-decoration: underline;"
+						>{{ $t('strings.offline') }}</span>)
+					</Span>
 				</router-link>
 			</v-app-bar-title>
 
 			<v-btn
-				v-if="$vuetify.display.mdAndUp && features.Rockets"
+				v-if="$vuetify.display.mdAndUp && displayRockets"
 				prepend-icon="mdi-rocket"
 				variant="tonal"
 				class="mr-2"
@@ -78,7 +86,7 @@
 				fluid
 				pt-2
 			>
-			<!-- [[ online = {{  online  }}]]
+			<!-- [[ isOnline = {{  isOnline  }}]]
 			[[ isLoggedIn = {{  isLoggedIn  }}]] -->
 				<router-view />
 			</v-container>
@@ -122,10 +130,6 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-
-import LibraryClientUtility from '@thzero/library_client/utility/index';
-
 import VtCookieComply from '@thzero/library_client_vue3_vuetify3/components/VtCookieComply';
 import VtConfirmationDialog from '@thzero/library_client_vue3_vuetify3/components/VtConfirmationDialog';
 // import VtDisplayDialog from '@thzero/library_client_vue3_vuetify3/components/VtDisplayDialog';
@@ -185,17 +189,15 @@ export default {
 			dialogDisplayMarkupSignal,
 			displayMarkupValue,
 			info,
+			displayRockets,
 			displaySignIn,
 			// links,
 			markup,
 			preferences,
 			serviceMarkup,
+			isOnline,
 			tools
 		} = useAppMainLayout(props, context);
-
-		const online = computed(() => {
-			return LibraryClientUtility.$store.getters.getOnline();
-		});
 
 		return {
 			correlationId,
@@ -231,13 +233,14 @@ export default {
 			dialogDisplayMarkupSignal,
 			displayMarkupValue,
 			info,
+			displayRockets,
 			displaySignIn,
 			// links,
 			markup,
 			preferences,
 			serviceMarkup,
-			tools,
-			online
+			isOnline,
+			tools
 		};
 	}
 };

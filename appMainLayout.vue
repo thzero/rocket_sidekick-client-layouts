@@ -95,8 +95,12 @@ export function useAppMainLayout(props, context, options) {
 		// },
 	];
 
+	const displayRockets = computed(() => {
+		return LibraryClientUtility.online && features.value.Rockets;
+	});
 	const displaySignIn = computed(() => {
-		return !isLoggedIn.value && serviceFeatures.features().Auth;
+		// return !isLoggedIn.value && serviceFeatures.features().Auth;
+		return !isLoggedIn.value && features.Auth;
 	});
 	const info = computed(() => {
 		let info = serviceStore.getters.getContentInfo();
@@ -118,6 +122,9 @@ export function useAppMainLayout(props, context, options) {
 	// 	});
 	// 	return links.sort((a, b) => a.order >= b.order);
 	// });
+	const isOnline = computed(() => {
+		return LibraryClientUtility.online;
+	});
 	const tools = computed(() => {
 		let tools = serviceStore.getters.getContentTools();
 		return tools.sort((a, b) => a.order >= b.order);
@@ -185,11 +192,13 @@ export function useAppMainLayout(props, context, options) {
 		dialogDisplayMarkupSignal,
 		displayMarkupValue,
 		info,
+		displayRockets,
 		displaySignIn,
 		// links,
 		markup,
 		preferences,
 		serviceMarkup,
+		isOnline,
 		tools
 	};
 };
