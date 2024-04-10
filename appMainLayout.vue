@@ -99,8 +99,7 @@ export function useAppMainLayout(props, context, options) {
 		return LibraryClientUtility.online && features.value.Rockets;
 	});
 	const displaySignIn = computed(() => {
-		// return !isLoggedIn.value && serviceFeatures.features().Auth;
-		return !isLoggedIn.value && features.Auth;
+		return !isLoggedIn.value && features.value.Auth;
 	});
 	const info = computed(() => {
 		let info = serviceStore.getters.getContentInfo();
