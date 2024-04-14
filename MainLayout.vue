@@ -20,14 +20,14 @@
 					class="text-contrast toolbar-title"
 				>
 					{{ $t('titles.application') }} 
-					<Span
+					<span
 						v-if="!isOnline"
 					>
 						(<span 
 							class="text-red"
 							style="font-weight: bold; text-decoration: underline;"
 						>{{ $t('strings.offline') }}</span>)
-					</Span>
+					</span>
 				</router-link>
 			</v-app-bar-title>
 
