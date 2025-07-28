@@ -128,6 +128,13 @@ export function useAppMainLayout(props, context, options) {
 		let tools = serviceStore.getters.getContentTools();
 		return tools.sort((a, b) => a.order >= b.order);
 	});
+	const user = computed(() => {
+		return serviceStore.user;
+	});
+	const userGamerTag = computed(() => {
+		const settings = serviceStore.getters.user.getUserSettings();
+		return settings ? settings.gamerTag ? settings.gamerTag : null : null;
+	});
 
 	const contentLink = (item,) => {
 		if (item.markup)
@@ -198,7 +205,9 @@ export function useAppMainLayout(props, context, options) {
 		preferences,
 		serviceMarkup,
 		isOnline,
-		tools
+		tools,
+		user,
+		userGamerTag
 	};
 };
 </script>
