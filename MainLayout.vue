@@ -47,6 +47,8 @@
 				:info="info"
 				:isLoggedIn="isLoggedIn"
 				:tools="tools"
+				:user="user"
+				:userGamerTag="userGamerTag"
 			/>
 
 			<template v-slot:append>
@@ -77,6 +79,8 @@
 				:info="info"
 				:isLoggedIn="isLoggedIn"
 				:tools="tools"
+				:user="user"
+				:userGamerTag="userGamerTag"
 			/>
 		</v-navigation-drawer>
 
@@ -196,7 +200,9 @@ export default {
 			preferences,
 			serviceMarkup,
 			isOnline,
-			tools
+			tools,
+			user,
+			userGamerTag
 		} = useAppMainLayout(props, context);
 
 		return {
@@ -240,7 +246,9 @@ export default {
 			preferences,
 			serviceMarkup,
 			isOnline,
-			tools
+			tools,
+			user,
+			userGamerTag
 		};
 	}
 };
